@@ -15,17 +15,6 @@ export class Tab1Page {
   name: string = "";
   update: string = "";
 
-  // nameTable: string = `CREATE TABLE IF NOT EXISTS names (id INTEGER PRIMARY KEY, name TEXT);`;
-
-  // async createTables() {
-  //   try {
-  //     await this.database.executeSql(this.nameTable, []);
-  //   } catch (e) {
-  //     console.log("Error !");
-  //   }
-  // }
-
-
   constructor(public platform: Platform, public sqlite: SQLite) {
     this.platform.ready().then(() => {
       this.createDB();
@@ -85,7 +74,7 @@ export class Tab1Page {
     });
     console.log(this.row_data);
   }
-
+// Nime kustutab siin
   deleteRow(id) {
     this.database.executeSql(`DELETE FROM names WHERE id = ?`, [id]).then(() => {
       alert('Name Deleted!');
@@ -94,7 +83,7 @@ export class Tab1Page {
       alert("error " + JSON.stringify(e))
     });
   }
-
+// Nime uuendab siin
   updateName(update) {
     this.database.executeSql(`UPDATE names SET Name = ('${this.update}') WHERE id = ?`, [update]).then(() => {
       alert('Name Updated!');
